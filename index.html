@@ -252,11 +252,12 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
 .tour-list li.on{border-color:var(--rebar);background:var(--rebar-soft)}
 .tour-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:20px;font-weight:700;font-size:18px}
 
-.tour-zoom{position:relative;transform-origin:50% 50%}
+.tour-zoom{position:relative;transform-origin:50% 50%;will-change:transform}
+.tour-zoom img{width:100%;height:auto;aspect-ratio:1600/1062;object-fit:cover}
 @media (prefers-reduced-motion:no-preference){.tour-zoom{transition:transform .7s cubic-bezier(.2,.7,.2,1)}}
 .tour-img.zoomed .spot{opacity:0;pointer-events:none}
 .tour-img.zoomed .tour-zoom{cursor:zoom-out}
-.tour-img.zoomed .spot.on{opacity:1;transform:translate(-50%,-50%) scale(.4)}
+.tour-img.zoomed .spot.on{opacity:1;transform:translate(-50%,-50%) scale(calc(1 / var(--zs,2.6)))}
 .zoom-card{position:absolute;inset:auto 10px 10px 10px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:color-mix(in srgb,var(--surface) 94%,transparent);color:var(--ink);border-radius:8px;padding:12px 14px;box-shadow:0 4px 18px rgba(0,0,0,.3)}
 .zoom-card>div{flex:1;min-width:0}
 .zoom-card b{font-family:var(--f-display);font-weight:400;font-size:19px}
@@ -392,7 +393,7 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
     <div class="tour">
       <div class="tour-img" id="tourImg">
         <div class="tour-zoom" id="tourZoom">
-        <img src="img/building.jpg" width="1600" height="1062" alt="בניין מגורים ישן על עמודים עם מעקה גג סדוק, מרפסת מתפוררת, סדק אלכסוני בקיר, עמוד הרוס וחיפוי אבן חסר" loading="lazy">
+        <img src="img/building.jpg" srcset="img/building.jpg 1600w, img/building-2x.jpg 2048w" sizes="(max-width:900px) 100vw, 66vw" width="1600" height="1062" alt="בניין מגורים ישן על עמודים עם מעקה גג סדוק, מרפסת מתפוררת, סדק אלכסוני בקיר, עמוד הרוס וחיפוי אבן חסר" loading="lazy">
         <button class="spot" type="button" data-i="1" style="left:20.5%;top:7.5%" aria-label="נקודה 1: מעקה גג סדוק">1</button>
         <button class="spot" type="button" data-i="2" style="left:29.5%;top:17%" aria-label="נקודה 2: רטיבות וכתמי מים">2</button>
         <button class="spot" type="button" data-i="3" style="left:43%;top:50%" aria-label="נקודה 3: מרפסת מתפוררת">3</button>
@@ -699,10 +700,10 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
   });
   var spots=document.querySelectorAll('.spot'),items=document.querySelectorAll('.tour-list li');
   var box=document.getElementById('tourImg'),zoom=document.getElementById('tourZoom'),card=document.getElementById('zoomCard');
-  var S=2.6;
+  function zs(){var w=window.innerWidth;return w<=560?1.7:(w<=900?2:2.4)}
   function zoomTo(i){
     var s=box.querySelector('.spot[data-i="'+i+'"]'),li=box.parentNode.querySelector('.tour-list li[data-i="'+i+'"]');
-    var x=parseFloat(s.style.left),y=parseFloat(s.style.top),m=50/S;
+    var S=zs();box.style.setProperty('--zs',S);var x=parseFloat(s.style.left),y=parseFloat(s.style.top),m=50/S;
     var cx=Math.min(Math.max(x,m),100-m),cy=Math.min(Math.max(y,m),100-m);
     zoom.style.transform='scale('+S+') translate('+(50-cx)+'%,'+(50-cy)+'%)';
     box.classList.add('zoomed');
