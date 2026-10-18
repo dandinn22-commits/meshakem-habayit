@@ -266,31 +266,42 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
 /* hero with photo */
 .hx{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:#1a201d}
 .hx-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center;transform:scaleX(-1);z-index:-2;max-width:none}
-.hx-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to left,rgba(14,19,17,.92) 0%,rgba(14,19,17,.78) 45%,rgba(14,19,17,.35) 100%)}
-.hx-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:40px;align-items:center;padding-block:64px 56px}
-.hx-copy{max-width:640px}
+.hx-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to left,rgba(14,19,17,.9) 0%,rgba(14,19,17,.78) 34%,rgba(14,19,17,.3) 58%,rgba(14,19,17,0) 74%),linear-gradient(to top,rgba(14,19,17,.55) 0%,rgba(14,19,17,0) 30%)}
+.hx-grid{padding-block:72px 40px}
+.hx-copy{max-width:600px}
 .hx-alert{display:inline-flex;align-items:center;gap:8px;background:var(--rebar);color:#fff;font-weight:700;font-size:14.5px;padding:6px 14px;border-radius:99px;margin-bottom:18px}
 .hx-alert::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
-.hx h1{font-size:clamp(34px,5.4vw,60px);color:#fff}
+.hx h1{font-size:clamp(34px,4.8vw,58px);color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.35)}
 .hx h1 span{color:#ffb27a}
-.hx-lead{margin-top:16px;font-size:19.5px;color:rgba(255,255,255,.88);max-width:34em}
+.hx-lead{margin-top:16px;font-size:19.5px;color:rgba(255,255,255,.9);max-width:32em}
 .hx-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .btn-xl{padding:14px 24px;font-size:19px;line-height:1.25;text-align:right;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
 .btn-xl small{display:block;font-size:13.5px;font-weight:600;opacity:.92}
 .btn-light{background:#fff;color:#1d2321}
 .btn-light:hover{background:#f1e4da}
-.btn-block{width:100%;font-size:18px;padding:14px}
-.hx-trust{display:flex;flex-wrap:wrap;gap:8px 26px;list-style:none;padding:20px 0 0;margin:28px 0 0;border-top:1px solid rgba(255,255,255,.2);font-size:15.5px;color:rgba(255,255,255,.9)}
+.hx-trust{display:flex;flex-wrap:wrap;gap:8px 26px;list-style:none;padding:0;margin:26px 0 0;font-size:15.5px;color:rgba(255,255,255,.9)}
 .hx-trust li{display:flex;align-items:center;gap:8px}
 .hx-trust b{font-family:var(--f-display);font-weight:400;font-size:26px;color:#ffb27a}
-.hx-form{box-shadow:0 12px 40px rgba(0,0,0,.35);gap:12px}
-.hx-form h2{font-size:26px;color:var(--rebar)}
-.hx-form>p:first-of-type{color:var(--muted);font-size:15px;margin-top:-6px}
+.hx-bar{padding-block:0 28px}
+.hx-form{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:14px 16px;border-radius:10px;box-shadow:0 10px 34px rgba(0,0,0,.35);max-width:920px}
+.hx-form-t{flex:1 1 220px;min-width:0;display:grid;line-height:1.3}
+.hx-form-t b{font-family:var(--f-display);font-weight:400;font-size:21px;color:var(--rebar)}
+.hx-form-t span{font-size:14px;color:var(--muted)}
+.hx-form label{flex:1 1 150px;min-width:0}
+.hx-form input{padding:12px}
+.hx-form .btn{flex:0 0 auto;padding:13px 26px;font-size:17px}
+.hx-form .form-msg{flex:1 1 100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:no-preference){.btn-xl{transition:transform .15s,filter .15s}.btn-xl:hover{transform:translateY(-2px)}}
 @media (max-width:860px){
-  .hx-grid{grid-template-columns:1fr;padding-block:40px 32px}
-  .hx-shade{background:rgba(14,19,17,.78)}
+  .hx{background:var(--band)}
+  .hx-bg{position:relative;display:block;height:230px;object-position:72% 40%}
+  .hx-shade{display:none}
+  .hx-grid{padding-block:24px 20px}
+  .hx h1{text-shadow:none}
   .hx-cta .btn-xl{flex:1 1 100%;justify-content:flex-start}
+  .hx-bar{padding-block:0 24px}
+  .hx-form .btn{flex:1 1 100%}
 }
 </style>
 
@@ -340,16 +351,17 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
         <li><b>✓</b> ליווי עד הסרת הצו</li>
       </ul>
     </div>
-    <form class="hx-form" id="heroForm" novalidate>
-      <h2>בדיקה בבניין בחינם</h2>
-      <p>השאירו שם וטלפון, ונחזור אליכם תוך יום עבודה לתאם.</p>
-      <label for="h-name">שם<input id="h-name" name="name" autocomplete="name" required></label>
-      <label for="h-phone">טלפון<input id="h-phone" name="phone" type="tel" autocomplete="tel" dir="ltr" required></label>
-      <button class="btn btn-main btn-block" type="submit">חזרו אליי לתיאום בדיקה</button>
-      <p class="form-msg" id="heroMsg" hidden></p>
-      <p class="small">ללא התחייבות. הפרטים שלכם נשארים אצלנו בלבד.</p>
-    </form>
+    
   </div>
+<div class="hx-bar"><div class="wrap">
+    <form class="hx-form" id="heroForm" novalidate>
+      <div class="hx-form-t"><b>בדיקה בבניין בחינם</b><span>השאירו שם וטלפון, ונחזור אליכם תוך יום עבודה</span></div>
+      <label for="h-name"><span class="sr">שם</span><input id="h-name" name="name" autocomplete="name" placeholder="שם" required></label>
+      <label for="h-phone"><span class="sr">טלפון</span><input id="h-phone" name="phone" type="tel" autocomplete="tel" placeholder="טלפון" required></label>
+      <button class="btn btn-main" type="submit">חזרו אליי</button>
+      <p class="form-msg" id="heroMsg" hidden></p>
+    </form>
+  </div></div>
 </section>
 
 <!-- BUILDING TOUR -->
