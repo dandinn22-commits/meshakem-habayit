@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>שיקום מבנים מסוכנים במרכז | הסרת צו מבנה מסוכן | משקם הבית</title>
+<meta name="description" content="משקם הבית - שיקום וחיזוק מבנים במרכז כבר 16 שנה. הסרת צו מבנה מסוכן, שיקום עמודים ומרפסות, חיזוק בסיבי פחמן. הערכה ראשונית ובדיקה בבניין בחינם וללא התחייבות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Assistant:wght@400;600;700;800&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "משקם הבית",
+  "description": "שיקום וחיזוק מבנים, הסרת צו מבנה מסוכן, שיקום עמודים ומרפסות באזור המרכז",
+  "telephone": "+972-50-555-0182",
+  "areaServed": ["תל אביב","רמת גן","גבעתיים","פתח תקווה","בני ברק","חולון","בת ים","ראשון לציון","הרצליה","רמת השרון","ראש העין","קריית אונו"],
+  "foundingDate": "2010"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"כמה זמן לוקח להסיר צו מבנה מסוכן?","acceptedAnswer":{"@type":"Answer","text":"ברוב הבניינים העבודה עצמה נמשכת בין כמה ימים לכמה שבועות, לפי היקף הליקויים. אחרי סיום העבודה המהנדס מגיש חוות דעת לעירייה, והעירייה מסירה את הצו לאחר בדיקה."}},
+    {"@type":"Question","name":"האם חייבים מהנדס קונסטרוקטור?","acceptedAnswer":{"@type":"Answer","text":"כן. בכל שיקום של שלד הבניין נדרש מהנדס שיכין מפרט, יפקח על העבודה ויחתום על חוות הדעת שנשלחת לעירייה."}},
+    {"@type":"Question","name":"כמה עולה שיקום מבנה?","acceptedAnswer":{"@type":"Answer","text":"המחיר תלוי במספר הליקויים, בגובה הבניין ובדרך הגישה (פיגום, סנפלינג או במת הרמה). אחרי שתשלחו תמונות ניתן לכם הערכה ראשונית וטווח מחיר בחינם, והצעה מדויקת אחרי בדיקה בבניין, שגם היא בחינם וללא התחייבות."}},
+    {"@type":"Question","name":"מה קורה אם לא מטפלים בצו?","acceptedAnswer":{"@type":"Answer","text":"העירייה יכולה להטיל קנסות, לבצע את העבודה בעצמה ולחייב את הדיירים, ובמקרים מסוימים לפנות לבית משפט. בנוסף, האחריות לנזק לעובר אורח עלולה לחול על בעלי הדירות."}}
+  ]
+}
+</script>
+<style>
+/* Layout: one reading column with full-width bands; hazard illustrations as the visual core. Concrete grey + rebar rust. */
+:root{
+  --bg:#f3f4f2;
+  --surface:#ffffff;
+  --ink:#1d2321;
+  --muted:#59625e;
+  --line:#d6dad6;
+  --concrete:#b9beb9;
+  --concrete-dark:#8c938e;
+  --concrete-light:#dfe2de;
+  --rebar:#b4561f;
+  --rebar-soft:#f3e2d6;
+  --crack:#2b302d;
+  --band:#22302b;
+  --band-ink:#eef1ee;
+  --ok:#2f7d4f;
+  --whats:#1f8f4e;
+  --f-display:"Secular One","Assistant",Arial,sans-serif;
+  --f-body:"Assistant","Arial Hebrew",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151917;--surface:#1d2321;--ink:#e9ece9;--muted:#a3aba6;--line:#333b37;
+  --concrete:#5d645f;--concrete-dark:#454b47;--concrete-light:#6f7771;
+  --rebar:#e07a3f;--rebar-soft:#3a2a20;--crack:#0d0f0e;--band:#0f1412;--band-ink:#e9ece9;--ok:#5cbf83;--whats:#2fb267;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151917;--surface:#1d2321;--ink:#e9ece9;--muted:#a3aba6;--line:#333b37;
+  --concrete:#5d645f;--concrete-dark:#454b47;--concrete-light:#6f7771;
+  --rebar:#e07a3f;--rebar-soft:#3a2a20;--crack:#0d0f0e;--band:#0f1412;--band-ink:#e9ece9;--ok:#5cbf83;--whats:#2fb267;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.2;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--rebar);outline-offset:2px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo b{font-family:var(--f-display);font-size:24px;font-weight:400}
+.logo small{display:block;font-size:12px;color:var(--muted);line-height:1}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-weight:600;font-size:15px}
+nav a{text-decoration:none}
+nav a:hover{color:var(--rebar)}
+.hd-phone{display:flex;align-items:center;gap:10px}
+.phone-num{font-weight:800;font-size:18px;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:900px){nav{display:none}}
+@media (max-width:520px){.hd-phone .btn{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:6px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--f-body)}
+.btn-main{background:var(--rebar);color:#fff}
+.btn-main:hover{filter:brightness(1.08)}
+.btn-whats{background:var(--whats);color:#fff}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+
+/* hazard tape strip */
+.tape{height:10px;background:repeating-linear-gradient(-45deg,var(--rebar) 0 14px,var(--band) 14px 28px)}
+
+/* hero */
+.hero{padding-block:48px 40px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero-grid>*{min-width:0}
+.eyebrow{display:inline-block;font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--rebar);margin-bottom:12px}
+.hero h1{font-size:clamp(34px,5.2vw,56px)}
+.hero h1 span{color:var(--rebar)}
+.hero .lead{margin-top:16px;font-size:19px;color:var(--muted);max-width:36em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-note{margin-top:10px;font-size:14px;color:var(--muted)}
+.trust{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:15px}
+.trust div{display:flex;align-items:center;gap:8px}
+.trust b{font-family:var(--f-display);font-weight:400;font-size:26px;color:var(--rebar)}
+.hero-art{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.hero-art svg{display:block;width:100%;height:auto}
+.hero-art figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.hero-art{order:-1}}
+
+section{padding-block:56px}
+.sec-head{max-width:44em;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,3.6vw,38px)}
+.sec-head p{margin-top:10px;color:var(--muted)}
+
+/* hazards */
+.hazards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.hazards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.hazards{grid-template-columns:1fr}}
+.hz{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.hz svg{display:block;width:100%;height:auto;background:var(--concrete-light)}
+.hz-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hz h3{font-size:21px}
+.hz p{font-size:15.5px;color:var(--muted)}
+.risk{align-self:flex-start;font-size:12.5px;font-weight:800;letter-spacing:.03em;padding:3px 10px;border-radius:99px;background:var(--rebar-soft);color:var(--rebar)}
+.hz-link{margin-top:auto;padding-top:6px;font-weight:700;font-size:15px;color:var(--rebar);text-decoration:none}
+.hz-link:hover{text-decoration:underline}
+
+/* svg paint classes */
+.c{fill:var(--concrete)} .cd{fill:var(--concrete-dark)} .cl{fill:var(--concrete-light)}
+.sky{fill:var(--surface)}
+.rb{stroke:var(--rebar);stroke-width:3;fill:none;stroke-linecap:round}
+.rbf{fill:var(--rebar)}
+.ck{stroke:var(--crack);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.ckf{fill:var(--crack)}
+.ln{stroke:var(--concrete-dark);stroke-width:1;fill:none}
+
+/* band */
+.band{background:var(--band);color:var(--band-ink)}
+.band .sec-head p{color:color-mix(in srgb,var(--band-ink) 75%,transparent)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+@media (max-width:700px){.services{grid-template-columns:1fr}}
+.svc{padding-block:18px;border-top:1px solid color-mix(in srgb,var(--band-ink) 20%,transparent)}
+.svc h3{font-size:22px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.svc h3 a{text-decoration:none}
+.svc h3 a:hover{color:var(--rebar)}
+.svc p{margin-top:6px;font-size:15.5px;color:color-mix(in srgb,var(--band-ink) 75%,transparent)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;list-style:none;padding:0;margin:0;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;position:relative}
+.steps li::before{content:counter(s);font-family:var(--f-display);font-size:34px;color:var(--rebar);line-height:1;display:block;margin-bottom:8px}
+.steps h3{font-size:19px}
+.steps p{font-size:15px;color:var(--muted);margin-top:6px}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:700px){.why{grid-template-columns:1fr}}
+.why div{border-right:4px solid var(--rebar);padding:4px 16px 4px 0}
+.why h3{font-size:20px}
+.why p{color:var(--muted);font-size:15.5px;margin-top:4px}
+
+/* committee */
+.committee{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.committee>*{min-width:0}
+@media (max-width:800px){.committee{grid-template-columns:1fr}}
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.checklist li{display:flex;gap:10px;align-items:flex-start}
+.checklist li::before{content:"";flex:none;width:18px;height:18px;margin-top:5px;border-radius:4px;background:var(--ok);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10l4 4 8-8' stroke='black' stroke-width='3' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10l4 4 8-8' stroke='black' stroke-width='3' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.callout{background:var(--rebar-soft);border-radius:10px;padding:22px}
+.callout h3{font-size:22px;color:var(--rebar)}
+.callout p{margin-top:8px}
+
+/* cities */
+.cities{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.cities a{display:inline-block;padding:8px 16px;border:1px solid var(--line);background:var(--surface);border-radius:99px;text-decoration:none;font-weight:600;font-size:15px}
+.cities a:hover{border-color:var(--rebar);color:var(--rebar)}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:820px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:0 18px}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px;padding-block:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--rebar);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding-bottom:16px;color:var(--muted)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-grid>*{min-width:0}
+@media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
+.contact-grid h2{font-size:clamp(28px,3.6vw,40px)}
+.contact-grid .lead{margin-top:12px;color:color-mix(in srgb,var(--band-ink) 80%,transparent)}
+.direct{margin-top:24px;display:grid;gap:12px}
+.direct .row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.direct .phone-num{font-size:30px;font-family:var(--f-display);font-weight:400}
+.copy{background:transparent;border:1px solid color-mix(in srgb,var(--band-ink) 40%,transparent);color:var(--band-ink);border-radius:6px;padding:6px 12px;font-family:var(--f-body);font-weight:600;cursor:pointer}
+form{background:var(--surface);color:var(--ink);border-radius:10px;padding:24px;display:grid;gap:14px}
+form h3{font-size:22px}
+label{display:grid;gap:4px;font-weight:600;font-size:15px}
+input,select,textarea{font:inherit;font-weight:400;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:80px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.form-row{grid-template-columns:1fr}}
+.form-msg{font-weight:700;color:var(--ok)}
+.small{font-size:13px;color:var(--muted)}
+
+footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+.ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+/* mobile sticky bar */
+.mbar{display:none}
+@media (max-width:700px){
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);
+    padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+  .mbar .btn{padding:12px 6px;font-size:15px}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s,background .15s,color .15s}}
+
+/* photos */
+.hero-art img{display:block;width:100%;height:auto;border-radius:6px}
+.hz img{display:block;width:100%;height:auto;aspect-ratio:900/605;object-fit:cover;max-width:100%}
+
+/* annotated building */
+.tour{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.tour{grid-template-columns:1fr}}
+.tour-img{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.tour-img img{display:block;width:100%;height:auto}
+.spot{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;border:3px solid #fff;background:var(--rebar);color:#fff;font-family:var(--f-display);font-size:17px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.45);display:grid;place-items:center;padding:0}
+.spot::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--rebar);opacity:.7}
+.spot.on{background:#fff;color:var(--rebar);border-color:var(--rebar)}
+@media (max-width:560px){.spot{width:26px;height:26px;font-size:14px;border-width:2px}.spot::after{inset:-6px}}
+@media (prefers-reduced-motion:no-preference){.spot::after{animation:pulse 2.2s ease-out infinite}}
+@keyframes pulse{0%{transform:scale(.8);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.tour-list{list-style:none;padding:0;margin:0;display:grid;gap:8px;counter-reset:t}
+.tour-list li{counter-increment:t;display:grid;grid-template-columns:30px 1fr;gap:4px 12px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer}
+.tour-list li::before{content:counter(t);grid-row:span 2;width:28px;height:28px;border-radius:50%;background:var(--rebar);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-size:15px}
+.tour-list h3{font-size:18px}
+.tour-list p{font-size:14.5px;color:var(--muted)}
+.tour-list li.on{border-color:var(--rebar);background:var(--rebar-soft)}
+.tour-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:20px;font-weight:700;font-size:18px}
+
+.tour-zoom{position:relative;transform-origin:50% 50%}
+@media (prefers-reduced-motion:no-preference){.tour-zoom{transition:transform .7s cubic-bezier(.2,.7,.2,1)}}
+.tour-img.zoomed .spot{opacity:0;pointer-events:none}
+.tour-img.zoomed .tour-zoom{cursor:zoom-out}
+.tour-img.zoomed .spot.on{opacity:1;transform:translate(-50%,-50%) scale(.4)}
+.zoom-card{position:absolute;inset:auto 10px 10px 10px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:color-mix(in srgb,var(--surface) 94%,transparent);color:var(--ink);border-radius:8px;padding:12px 14px;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.zoom-card>div{flex:1;min-width:0}
+.zoom-card b{font-family:var(--f-display);font-weight:400;font-size:19px}
+.zoom-card p{font-size:14.5px;color:var(--muted)}
+.zoom-hint{font-size:13px;color:var(--muted)}
+.zoom-num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--rebar);color:#fff;display:grid;place-items:center;font-family:var(--f-display)}
+.zoom-back{font:inherit;font-weight:700;font-size:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;padding:7px 12px;cursor:pointer}
+@media (max-width:560px){.zoom-card{position:static;border-radius:0;box-shadow:none;border-top:1px solid var(--line)}}
+
+/* hero with photo */
+.hx{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:#1a201d}
+.hx-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% center;transform:scaleX(-1);z-index:-2;max-width:none}
+.hx-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to left,rgba(14,19,17,.92) 0%,rgba(14,19,17,.78) 45%,rgba(14,19,17,.35) 100%)}
+.hx-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:40px;align-items:center;padding-block:64px 56px}
+.hx-copy{max-width:640px}
+.hx-alert{display:inline-flex;align-items:center;gap:8px;background:var(--rebar);color:#fff;font-weight:700;font-size:14.5px;padding:6px 14px;border-radius:99px;margin-bottom:18px}
+.hx-alert::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.hx h1{font-size:clamp(34px,5.4vw,60px);color:#fff}
+.hx h1 span{color:#ffb27a}
+.hx-lead{margin-top:16px;font-size:19.5px;color:rgba(255,255,255,.88);max-width:34em}
+.hx-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn-xl{padding:14px 24px;font-size:19px;line-height:1.25;text-align:right;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.btn-xl small{display:block;font-size:13.5px;font-weight:600;opacity:.92}
+.btn-light{background:#fff;color:#1d2321}
+.btn-light:hover{background:#f1e4da}
+.btn-block{width:100%;font-size:18px;padding:14px}
+.hx-trust{display:flex;flex-wrap:wrap;gap:8px 26px;list-style:none;padding:20px 0 0;margin:28px 0 0;border-top:1px solid rgba(255,255,255,.2);font-size:15.5px;color:rgba(255,255,255,.9)}
+.hx-trust li{display:flex;align-items:center;gap:8px}
+.hx-trust b{font-family:var(--f-display);font-weight:400;font-size:26px;color:#ffb27a}
+.hx-form{box-shadow:0 12px 40px rgba(0,0,0,.35);gap:12px}
+.hx-form h2{font-size:26px;color:var(--rebar)}
+.hx-form>p:first-of-type{color:var(--muted);font-size:15px;margin-top:-6px}
+@media (prefers-reduced-motion:no-preference){.btn-xl{transition:transform .15s,filter .15s}.btn-xl:hover{transform:translateY(-2px)}}
+@media (max-width:860px){
+  .hx-grid{grid-template-columns:1fr;padding-block:40px 32px}
+  .hx-shade{background:rgba(14,19,17,.78)}
+  .hx-cta .btn-xl{flex:1 1 100%;justify-content:flex-start}
+}
+</style>
+
+</head>
+<body>
+<div lang="he" dir="rtl">
+
+<header>
+  <div class="wrap hd">
+    <a class="logo" href="#top" aria-label="משקם הבית - עמוד הבית">
+      <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="14" width="28" height="22" class="c"/><path d="M3 16 20 4l17 12" class="rb" stroke-width="4"/><path d="M14 36V24h12v12" class="cd"/><path d="M12 22v14M28 22v14" class="rb" stroke-width="2"/></svg>
+      <span><b>משקם הבית</b><small>שיקום וחיזוק מבנים</small></span>
+    </a>
+    <nav aria-label="ניווט ראשי"><ul>
+      <li><a href="#tour">סימני סכנה</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#process">איך זה עובד</a></li>
+      <li><a href="#committee">לוועד הבית</a></li>
+      <li><a href="#faq">שאלות נפוצות</a></li>
+    </ul></nav>
+    <div class="hd-phone">
+      <span class="phone-num">050-555-0182</span>
+      <a class="btn btn-main" href="#contact">הערכה ראשונית בחינם</a>
+    </div>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hx">
+  <img class="hx-bg" src="img/hero.jpg" width="1600" height="900" alt="צוות שיקום מבנים עובד על פיגום ומשקם עמוד ומרפסת בבניין מגורים ישן" fetchpriority="high">
+  <div class="hx-shade" aria-hidden="true"></div>
+  <div class="wrap hx-grid">
+    <div class="hx-copy">
+      <span class="hx-alert">קיבלתם צו מבנה מסוכן? יש לכם מועד אחרון לתיקון</span>
+      <h1>שיקום מבנים מסוכנים <span>והסרת צו מבנה מסוכן</span> במרכז</h1>
+      <p class="hx-lead">16 שנה אנחנו משקמים עמודים, מרפסות וחזיתות בגוש דן, ומלווים את הדיירים מול העירייה עד שהצו מוסר.</p>
+      <div class="hx-cta">
+        <a class="btn btn-whats btn-xl" href="https://wa.me/972505550182" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg><span>שלחו תמונה בוואטסאפ<small>הערכה ראשונית בחינם תוך יום עבודה</small></span></a>
+        <a class="btn btn-light btn-xl" href="#contact"><span>תאמו בדיקה בבניין<small>בחינם וללא התחייבות</small></span></a>
+      </div>
+      <ul class="hx-trust">
+        <li><b>16</b> שנות ניסיון</li>
+        <li><b>✓</b> מהנדס מלווה בביצוע</li>
+        <li><b>✓</b> ליווי עד הסרת הצו</li>
+      </ul>
+    </div>
+    <form class="hx-form" id="heroForm" novalidate>
+      <h2>בדיקה בבניין בחינם</h2>
+      <p>השאירו שם וטלפון, ונחזור אליכם תוך יום עבודה לתאם.</p>
+      <label for="h-name">שם<input id="h-name" name="name" autocomplete="name" required></label>
+      <label for="h-phone">טלפון<input id="h-phone" name="phone" type="tel" autocomplete="tel" dir="ltr" required></label>
+      <button class="btn btn-main btn-block" type="submit">חזרו אליי לתיאום בדיקה</button>
+      <p class="form-msg" id="heroMsg" hidden></p>
+      <p class="small">ללא התחייבות. הפרטים שלכם נשארים אצלנו בלבד.</p>
+    </form>
+  </div>
+</section>
+
+<!-- BUILDING TOUR -->
+<section id="tour" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>איך נראה בניין שצריך שיקום מבנים?</h2>
+      <p>לחצו על נקודה בתמונה או על שורה ברשימה, והתמונה תתקרב אל הבעיה. בבניין אחד ישן יכולים להופיע כמה ליקויים יחד, וכל אחד מהם מספיק כדי שהעירייה תוציא צו מבנה מסוכן.</p>
+    </div>
+    <div class="tour">
+      <div class="tour-img" id="tourImg">
+        <div class="tour-zoom" id="tourZoom">
+        <img src="img/building.jpg" width="1600" height="1062" alt="בניין מגורים ישן על עמודים עם מעקה גג סדוק, מרפסת מתפוררת, סדק אלכסוני בקיר, עמוד הרוס וחיפוי אבן חסר" loading="lazy">
+        <button class="spot" type="button" data-i="1" style="left:20.5%;top:7.5%" aria-label="נקודה 1: מעקה גג סדוק">1</button>
+        <button class="spot" type="button" data-i="2" style="left:29.5%;top:17%" aria-label="נקודה 2: רטיבות וכתמי מים">2</button>
+        <button class="spot" type="button" data-i="3" style="left:43%;top:50%" aria-label="נקודה 3: מרפסת מתפוררת">3</button>
+        <button class="spot" type="button" data-i="4" style="left:77.5%;top:46%" aria-label="נקודה 4: סדק אלכסוני">4</button>
+        <button class="spot" type="button" data-i="5" style="left:10%;top:80%" aria-label="נקודה 5: עמוד הרוס">5</button>
+        <button class="spot" type="button" data-i="6" style="left:84%;top:81%" aria-label="נקודה 6: חיפוי אבן חסר">6</button>
+        </div>
+        <div class="zoom-card" id="zoomCard" hidden>
+          <span class="zoom-num" id="zoomNum"></span>
+          <div><b id="zoomTitle"></b><p id="zoomText"></p></div>
+          <button type="button" class="zoom-back" id="zoomBack">חזרה לבניין המלא</button>
+          <span class="zoom-hint">או לחצו על התמונה</span>
+        </div>
+      </div>
+      <ol class="tour-list">
+        <li data-i="1"><h3>מעקה גג סדוק</h3><p>סדק עמוק לאורך המעקה. גוש בטון מגובה הגג יכול ליפול על המדרכה.</p></li>
+        <li data-i="2"><h3>רטיבות וכתמי מים</h3><p>מים שחודרים מהגג מחלידים את הברזל בתוך הקיר ומאיצים את ההתפוררות.</p></li>
+        <li data-i="3"><h3>מרפסת מתפוררת</h3><p>הבטון בתחתית המרפסת נשר, הברזל חשוף וחלודה זולגת למטה. סכנה ישירה לדיירים מתחת.</p></li>
+        <li data-i="4"><h3>סדק אלכסוני בקיר</h3><p>סדק מדורג שעובר בין החלונות. יכול להעיד על תזוזה בשלד וצריך בדיקת מהנדס.</p></li>
+        <li data-i="5"><h3>עמוד הרוס בקומת העמודים</h3><p>הליקוי המסוכן ביותר: העמוד נושא את הקומות שמעליו, והברזל שלו חלוד וחשוף.</p></li>
+        <li data-i="6"><h3>חיפוי אבן חסר ורופף</h3><p>אריחים נפלו ואחד תלוי ליד הכניסה, בדיוק במקום שבו הדיירים עוברים.</p></li>
+      </ol>
+    </div>
+    <div class="tour-cta">
+      <p>מזהים אחד מהסימנים האלה בבניין שלכם? שלחו תמונה וקבלו הערכה ראשונית בחינם.</p>
+      <a class="btn btn-whats" href="https://wa.me/972505550182" target="_blank" rel="noopener">שלחו תמונה בוואטסאפ</a>
+    </div>
+  </div>
+</section>
+
+<!-- HAZARDS -->
+<section id="hazards" style="padding-top:16px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>6 סימנים שהבניין שלכם צריך שיקום מבנים עכשיו</h2>
+      <p>אלה הליקויים שבגללם עיריות מוציאות צו מבנה מסוכן. רובם מתחילים קטן, אבל כשברזל הזיון מחליד הוא מתנפח, שובר את הבטון מבפנים ומחליש את השלד.</p>
+    </div>
+    <div class="hazards">
+
+      <article class="hz">
+        <img src="img/column.jpg" width="900" height="605" alt="עמוד בטון סדוק עם ברזל זיון חלוד חשוף" loading="lazy">
+        <div class="hz-body">
+          <span class="risk">סכנה גבוהה</span>
+          <h3>עמודים סדוקים וברזל חשוף</h3>
+          <p>העמודים נושאים את כל הבניין. בטון שנשר וברזל חלוד מקטינים את חוזק העמוד ודורשים שיקום או עיבוי עמודים.</p>
+          <a class="hz-link" href="#contact">יש לכם עמוד כזה? שלחו תמונה</a>
+        </div>
+      </article>
+
+      <article class="hz">
+        <img src="img/balcony.jpg" width="900" height="605" alt="תחתית מרפסת מתפוררת עם ברזל חלוד וכתמי חלודה" loading="lazy">
+        <div class="hz-body">
+          <span class="risk">סכנה גבוהה</span>
+          <h3>תחתית מרפסת מתפוררת</h3>
+          <p>מים חודרים לרצפת המרפסת ומחלידים את הברזל. גושי בטון נופלים לחצר ולמדרכה, וזו הסיבה הנפוצה לצו מסוכן.</p>
+          <a class="hz-link" href="#contact">בדיקת מרפסת</a>
+        </div>
+      </article>
+
+      <article class="hz">
+        <img src="img/tiles.jpg" width="900" height="605" alt="חיפוי אבן בחזית עם אריחים חסרים ואריח תלוי רופף" loading="lazy">
+        <div class="hz-body">
+          <span class="risk">סכנה לעוברי אורח</span>
+          <h3>אריחי שיש וחיפוי רופפים</h3>
+          <p>אריח שנופל מקומה שלישית יכול להרוג. חיזוק אריחים בעיגון מכני מונע נפילה בלי לפרק את כל החזית.</p>
+          <a class="hz-link" href="#contact">חיזוק חיפוי</a>
+        </div>
+      </article>
+
+      <article class="hz">
+        <img src="img/parapet.jpg" width="900" height="605" alt="מעקה גג עם סדק אופקי בבסיסו וברזל חשוף" loading="lazy">
+        <div class="hz-body">
+          <span class="risk">סכנה גבוהה</span>
+          <h3>מעקה גג נוטה או סדוק</h3>
+          <p>מעקה גג ישן נחלש מבפנים. סדק אופקי בבסיס המעקה מראה שהוא עלול לקרוס כלפי חוץ.</p>
+          <a class="hz-link" href="#contact">בדיקת מעקה גג</a>
+        </div>
+      </article>
+
+      <article class="hz">
+        <img src="img/crack.jpg" width="900" height="605" alt="סדק אלכסוני מדורג בקיר חיצוני ליד חלון" loading="lazy">
+        <div class="hz-body">
+          <span class="risk">דורש בדיקת מהנדס</span>
+          <h3>סדק אלכסוני בקיר</h3>
+          <p>סדק בזווית של כ־45 מעלות עלול להעיד על שקיעה ביסודות. הוא שונה מסדקי טיח רגילים וצריך אבחון הנדסי.</p>
+          <a class="hz-link" href="#contact">איך יודעים אם הסדק מסוכן?</a>
+        </div>
+      </article>
+
+      <article class="hz">
+        <img src="img/ceiling.jpg" width="900" height="605" alt="תקרת חדר מדרגות עם בטון מתקלף וברזל חשוף" loading="lazy">
+        <div class="hz-body">
+          <span class="risk">סכנה לדיירים</span>
+          <h3>תקרה מתקלפת בחדר מדרגות או במקלט</h3>
+          <p>רטיבות בתקרה גורמת לבטון להתקלף ולחשוף את הברזל. כאן חלקים נופלים ישירות על הדיירים.</p>
+          <a class="hz-link" href="#contact">שיקום תקרה</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>שירותי שיקום וחיזוק מבנים</h2>
+      <p>כל העבודות מתבצעות בליווי מהנדס קונסטרוקטור ובהתאם לדרישות מחלקת המבנים המסוכנים בעירייה.</p>
+    </div>
+    <div class="services">
+      <div class="svc"><h3><a href="#contact">הסרת צו מבנה מסוכן</a></h3><p>טיפול מלא: קריאת הצו, מפרט מהנדס, ביצוע, והגשת חוות הדעת לעירייה עד להסרת הצו.</p></div>
+      <div class="svc"><h3><a href="#contact">שיקום ועיבוי עמודים</a></h3><p>חציבת בטון רופף, ניקוי ברזל מחלודה, הוספת ברזל במקום שנחלש, ויציקה מחדש או עיבוי העמוד.</p></div>
+      <div class="svc"><h3><a href="#contact">שיקום וחיזוק מרפסות</a></h3><p>שיקום תחתית המרפסת, חיזוק מעקות ואיטום הרצפה כדי שהבעיה לא תחזור.</p></div>
+      <div class="svc"><h3><a href="#contact">שיקום בטון וברזל זיון</a></h3><p>טיפול בקורוזיה בחומרי שיקום ייעודיים, כולל בניינים קרובים לים שבהם החלודה מהירה יותר.</p></div>
+      <div class="svc"><h3><a href="#contact">חיזוק מבנים בסיבי פחמן</a></h3><p>חיזוק עמודים, קורות ותקרות ביריעות פחמן. חזק, דק, ובלי להקטין את החלל.</p></div>
+      <div class="svc"><h3><a href="#contact">חיזוק חיפוי ואריחי שיש</a></h3><p>עיגון מכני של אריחים רופפים בחזית, מבלי לפרק את כל החיפוי.</p></div>
+      <div class="svc"><h3><a href="#contact">שיקום חזיתות בסנפלינג</a></h3><p>טיפול נקודתי בגובה בלי פיגום מלא, מתאים לליקויים מקומיים ולתקציב מצומצם.</p></div>
+      <div class="svc"><h3><a href="#contact">איטום מעטפת וגגות</a></h3><p>איטום אחרי השיקום, כדי שמים לא יחדרו שוב ויחלידו את הברזל.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>איך מסירים צו מבנה מסוכן: 5 שלבים</h2>
+      <p>אנחנו מלווים את הדיירים בכל שלב, כדי שלא תצטרכו להתעסק עם הבירוקרטיה בעצמכם.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>שולחים תמונות</h3><p>תמונות של הליקויים ומכתב העירייה בוואטסאפ. מקבלים הערכה ראשונית בחינם.</p></li>
+      <li><h3>בדיקה בבניין בחינם</h3><p>מגיעים לבניין, ממפים את כל הליקויים ונותנים הצעת מחיר מפורטת. הבדיקה בחינם וללא התחייבות.</p></li>
+      <li><h3>תיאום עם העירייה</h3><p>מפרט שיקום, ביטוח והגשת המסמכים למחלקת המבנים המסוכנים.</p></li>
+      <li><h3>ביצוע העבודה</h3><p>פיגום, סנפלינג או במת הרמה. עדכון לוועד הבית בכל שלב, עם תמונות.</p></li>
+      <li><h3>הסרת הצו</h3><p>המהנדס חותם על חוות דעת, אנחנו מגישים לעירייה ומלווים עד שהצו מוסר.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- WHY -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>למה ועדי בתים בוחרים במשקם הבית</h2></div>
+    <div class="why">
+      <div><h3>16 שנה רק בשיקום מבנים</h3><p>אנחנו לא חברת שיפוצים כללית. שיקום בטון וחיזוק מבנים זה מה שאנחנו עושים כל יום.</p></div>
+      <div><h3>מהנדס בכל פרויקט</h3><p>מהנדס קונסטרוקטור מכין את המפרט, מפקח על העבודה וחותם על חוות הדעת לעירייה.</p></div>
+      <div><h3>מחיר ברור מראש</h3><p>הצעת מחיר מפורטת לפי סעיפים, כדי שהוועד יוכל להציג אותה לכל הדיירים בלי הפתעות.</p></div>
+      <div><h3>אחריות בכתב</h3><p>כל עבודה מסתיימת עם תיעוד מלא, תמונות לפני ואחרי, ותעודת אחריות.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITTEE -->
+<section id="committee" style="padding-top:0">
+  <div class="wrap committee">
+    <div>
+      <div class="sec-head" style="margin-bottom:18px">
+        <h2>מדריך קצר לוועד הבית שקיבל צו</h2>
+        <p>הצו מגיע לכל בעלי הדירות, אבל בפועל הוועד מנהל את התהליך. זה מה שכדאי לעשות בשבוע הראשון:</p>
+      </div>
+      <ul class="checklist">
+        <li>לבדוק בצו מה המועד האחרון לתיקון, ולא לחכות לסוף.</li>
+        <li>לצלם את כל הליקויים שמופיעים בצו ולשמור את המכתב.</li>
+        <li>לגדר אזורים שיש בהם סכנת נפילה, למשל מתחת למרפסות.</li>
+        <li>לקבל הצעת מחיר מקבלן רשום עם מהנדס, ולבדוק את מספר הקבלן ברשם הקבלנים.</li>
+        <li>לכנס את הדיירים ולהציג הצעה מפורטת לפי סעיפים.</li>
+      </ul>
+    </div>
+    <aside class="callout">
+      <h3>דייר לא מוכן לשלם?</h3>
+      <p>זה קורה כמעט בכל בניין. האחריות לתיקון חלה על כל בעלי הדירות לפי חוק, וכשמציגים להם את הצו ואת הסיכון המשפטי, רוב הדיירים מצטרפים. נשמח להגיע לאסיפת דיירים ולהסביר את העבודה.</p>
+      <a class="btn btn-main" href="#contact" style="margin-top:16px">תאמו הגעה לאסיפת דיירים</a>
+    </aside>
+  </div>
+</section>
+
+<!-- CITIES -->
+<section id="areas" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>שיקום מבנים בערי המרכז</h2><p>אנחנו עובדים מול מחלקות המבנים המסוכנים בכל ערי גוש דן והמרכז.</p></div>
+    <ul class="cities">
+      <li><a href="#contact">שיקום מבנים בתל אביב</a></li>
+      <li><a href="#contact">שיקום מבנים ברמת גן</a></li>
+      <li><a href="#contact">שיקום מבנים בגבעתיים</a></li>
+      <li><a href="#contact">שיקום מבנים בפתח תקווה</a></li>
+      <li><a href="#contact">שיקום מבנים בבני ברק</a></li>
+      <li><a href="#contact">שיקום מבנים בחולון</a></li>
+      <li><a href="#contact">שיקום מבנים בבת ים</a></li>
+      <li><a href="#contact">שיקום מבנים בראשון לציון</a></li>
+      <li><a href="#contact">שיקום מבנים בהרצליה</a></li>
+      <li><a href="#contact">שיקום מבנים ברמת השרון</a></li>
+      <li><a href="#contact">שיקום מבנים בקריית אונו</a></li>
+      <li><a href="#contact">שיקום מבנים בראש העין</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>שאלות נפוצות על שיקום מבנים</h2></div>
+    <div class="faq">
+      <details open><summary>כמה זמן לוקח להסיר צו מבנה מסוכן?</summary><p>ברוב הבניינים העבודה עצמה נמשכת בין כמה ימים לכמה שבועות, לפי היקף הליקויים. אחרי סיום העבודה המהנדס מגיש חוות דעת לעירייה, והעירייה מסירה את הצו לאחר בדיקה.</p></details>
+      <details><summary>האם חייבים מהנדס קונסטרוקטור?</summary><p>כן. בכל שיקום של שלד הבניין נדרש מהנדס שיכין מפרט, יפקח על העבודה ויחתום על חוות הדעת שנשלחת לעירייה. אצלנו המהנדס כלול בתהליך.</p></details>
+      <details><summary>כמה עולה שיקום מבנה?</summary><p>המחיר תלוי במספר הליקויים, בגובה הבניין ובדרך הגישה (פיגום, סנפלינג או במת הרמה). אחרי שתשלחו תמונות ניתן לכם הערכה ראשונית וטווח מחיר בחינם, והצעה מדויקת אחרי בדיקה בבניין, שגם היא בחינם וללא התחייבות.</p></details>
+      <details><summary>מה קורה אם לא מטפלים בצו?</summary><p>העירייה יכולה להטיל קנסות, לבצע את העבודה בעצמה ולחייב את הדיירים, ובמקרים מסוימים לפנות לבית משפט. בנוסף, האחריות לנזק לעובר אורח עלולה לחול על בעלי הדירות.</p></details>
+      <details><summary>אפשר לגור בבניין בזמן העבודות?</summary><p>כן, ברוב המקרים. אנחנו מגדרים את אזורי העבודה, מתאמים מראש עבודות רועשות ושומרים על דרך כניסה בטוחה לדיירים.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="band">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>קיבלתם צו? שלחו תמונות וקבלו הערכה ראשונית בחינם</h2>
+      <p class="lead">ככל שמטפלים מוקדם יותר, השיקום קטן וזול יותר. שלחו לנו 3 תמונות של הליקויים ואת מכתב העירייה, ונחזור אליכם תוך יום עבודה עם הערכה ראשונית. ההערכה והבדיקה בבניין בחינם וללא התחייבות.</p>
+      <div class="direct">
+        <div class="row"><span class="phone-num">050-555-0182</span><button class="copy" type="button" id="copyPhone">העתקת המספר</button></div>
+        <div class="row"><a class="btn btn-whats" href="https://wa.me/972505550182" target="_blank" rel="noopener">שליחת תמונות בוואטסאפ</a></div>
+      </div>
+    </div>
+    <form id="leadForm" novalidate>
+      <h3>או השאירו פרטים לקבלת הערכה בחינם</h3>
+      <div class="form-row">
+        <label for="f-name">שם מלא<input id="f-name" name="name" required autocomplete="name"></label>
+        <label for="f-phone">טלפון<input id="f-phone" name="phone" type="tel" required autocomplete="tel" dir="ltr"></label>
+      </div>
+      <div class="form-row">
+        <label for="f-city">עיר<select id="f-city" name="city"><option>תל אביב</option><option>רמת גן</option><option>גבעתיים</option><option>פתח תקווה</option><option>בני ברק</option><option>חולון</option><option>בת ים</option><option>ראשון לציון</option><option>הרצליה</option><option>רמת השרון</option><option>אחר</option></select></label>
+        <label for="f-type">מה המצב?<select id="f-type" name="type"><option>קיבלנו צו מבנה מסוכן</option><option>יש ליקויים, עוד אין צו</option><option>חיזוק מבנה</option><option>אחר</option></select></label>
+      </div>
+      <label for="f-visit" style="display:flex;align-items:center;gap:8px;font-weight:600"><input id="f-visit" name="visit" type="checkbox" style="width:auto" checked> אני רוצה לתאם בדיקה בבניין בחינם</label>
+      <label for="f-msg">כמה מילים על הבניין (לא חובה)<textarea id="f-msg" name="msg" placeholder="למשל: בניין 4 קומות, עמודים סדוקים בקומת העמודים"></textarea></label>
+      <button class="btn btn-main" type="submit">קבלו הערכה ראשונית בחינם</button>
+      <p class="form-msg" id="formMsg" hidden></p>
+      <p class="small">טופס לדוגמה. חיבור לקבלת פניות יתווסף לפני העלייה לאוויר.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap ft">
+    <div><b style="color:var(--ink)">משקם הבית</b> · שיקום וחיזוק מבנים במרכז מאז 2010 · קבלן רשום מס' (יתווסף)</div>
+    <div>טלפון: <span class="phone-num" style="font-size:14px">050-555-0182</span></div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-whats" href="https://wa.me/972505550182" target="_blank" rel="noopener">וואטסאפ</a>
+  <a class="btn btn-main" href="#contact">הערכה ראשונית בחינם</a>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copyPhone');
+  btn.addEventListener('click',function(){
+    var t='050-555-0182';
+    var done=function(){btn.textContent='הועתק';setTimeout(function(){btn.textContent='העתקת המספר'},1800)};
+    try{navigator.clipboard.writeText(t).then(done,function(){sel()})}catch(e){sel()}
+    function sel(){var n=btn.previousElementSibling;var r=document.createRange();r.selectNodeContents(n);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  });
+  var f=document.getElementById('leadForm'),m=document.getElementById('formMsg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('f-name'),p=document.getElementById('f-phone');
+    if(!n.value.trim()){m.hidden=false;m.style.color='var(--rebar)';m.textContent='נא למלא שם.';n.focus();return}
+    if(p.value.replace(/\D/g,'').length<9){m.hidden=false;m.style.color='var(--rebar)';m.textContent='נא למלא מספר טלפון תקין.';p.focus();return}
+    m.hidden=false;m.style.color='var(--ok)';m.textContent='תודה '+n.value.trim()+'. בגרסה החיה הפרטים יישלחו אלינו ונחזור אליך תוך יום עבודה.';
+  });
+  var hf=document.getElementById('heroForm'),hm=document.getElementById('heroMsg');
+  hf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('h-name'),p=document.getElementById('h-phone');
+    hm.hidden=false;
+    if(!n.value.trim()){hm.style.color='var(--rebar)';hm.textContent='נא למלא שם.';n.focus();return}
+    if(p.value.replace(/\D/g,'').length<9){hm.style.color='var(--rebar)';hm.textContent='נא למלא מספר טלפון תקין.';p.focus();return}
+    hm.style.color='var(--ok)';hm.textContent='תודה '+n.value.trim()+'. בגרסה החיה נחזור אליך תוך יום עבודה לתיאום הבדיקה.';
+  });
+  var spots=document.querySelectorAll('.spot'),items=document.querySelectorAll('.tour-list li');
+  var box=document.getElementById('tourImg'),zoom=document.getElementById('tourZoom'),card=document.getElementById('zoomCard');
+  var S=2.6;
+  function zoomTo(i){
+    var s=box.querySelector('.spot[data-i="'+i+'"]'),li=box.parentNode.querySelector('.tour-list li[data-i="'+i+'"]');
+    var x=parseFloat(s.style.left),y=parseFloat(s.style.top),m=50/S;
+    var cx=Math.min(Math.max(x,m),100-m),cy=Math.min(Math.max(y,m),100-m);
+    zoom.style.transform='scale('+S+') translate('+(50-cx)+'%,'+(50-cy)+'%)';
+    box.classList.add('zoomed');
+    document.getElementById('zoomNum').textContent=i;
+    document.getElementById('zoomTitle').textContent=li.querySelector('h3').textContent;
+    document.getElementById('zoomText').textContent=li.querySelector('p').textContent;
+    card.hidden=false;
+  }
+  function unzoom(){zoom.style.transform='';box.classList.remove('zoomed');card.hidden=true}
+  function pick(i,doZoom){
+    spots.forEach(function(s){s.classList.toggle('on',s.dataset.i===i)});
+    items.forEach(function(l){l.classList.toggle('on',l.dataset.i===i)});
+    if(doZoom){zoomTo(i);if(window.innerWidth<900)box.scrollIntoView({block:'nearest',behavior:'smooth'})}
+  }
+  spots.forEach(function(s){s.addEventListener('click',function(){pick(s.dataset.i,true)})});
+  items.forEach(function(l){l.addEventListener('click',function(){pick(l.dataset.i,true)})});
+  document.getElementById('zoomBack').addEventListener('click',unzoom);
+  zoom.addEventListener('click',function(e){if(box.classList.contains('zoomed')){e.stopPropagation();e.preventDefault();unzoom()}},true);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')unzoom()});
+  pick('5',false);
+})();
+</script>
+
+</body>
+</html>
