@@ -32,14 +32,27 @@
     return fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', body: body, keepalive: true });
   }
 
+  function ga(name, params) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (e) {}
+  }
+
   window.sendLead = function (data) {
     data.type = 'lead';
-    return post(data).then(function () { location.href = '/toda/'; });
+    return post(data).then(function () {
+      return new Promise(function (done) {
+        var finished = false;
+        function go() { if (!finished) { finished = true; done(); location.href = '/toda/'; } }
+        ga('generate_lead', { form_name: data.form || '', event_callback: go });
+        setTimeout(go, 800);
+      });
+    });
   };
 
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href*="wa.me/"]');
     if (!a) return;
+    var isPhone = a.getAttribute('href').indexOf('tel:') === 0;
+    ga(isPhone ? 'click_call' : 'click_whatsapp', { page_path: location.pathname });
     post({ type: 'click', kind: a.getAttribute('href').indexOf('tel:') === 0 ? 'phone' : 'whatsapp' }).catch(function () {});
   }, true);
 })();

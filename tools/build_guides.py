@@ -160,3 +160,6 @@ open(f"{R}/madrich/index.html","w",encoding="utf-8").write(idx)
 urls=[DOMAIN+"/",DOMAIN+"/madrich/"]+[f"{DOMAIN}/madrich/{g['slug']}/" for g in GUIDES]+[f"{DOMAIN}/shikum-mivnim/{c['slug']}/" for c in CITIES]+[DOMAIN+"/privacy.html",DOMAIN+"/accessibility.html"]
 open(f"{R}/sitemap.xml","w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>\n" for u in urls)+"</urlset>\n")
 print("guides",len(GUIDES))
+
+import gtag
+gtag.run(R)

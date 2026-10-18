@@ -37,3 +37,7 @@
 המדריכים נמצאים בכתובת `/madrich/`. התוכן שלהם נמצא בקובץ `tools/guides.py`, והתוכן של עמודי הערים בקובץ `tools/cities.py`.
 אחרי שינוי בתוכן מריצים מתיקיית האתר:
 `python3 tools/build.py . && python3 tools/build_guides.py .`
+
+## גוגל טאג ומדידה
+תגית גוגל (G-DEE8HKJVYE) מופיעה בכל העמודים. הקובץ `tools/gtag.py` מוסיף אותה אוטומטית לכל עמוד חדש שנבנה.
+אירועים שנשלחים לגוגל: `generate_lead` (שליחת טופס), `click_call` (לחיצה על חיוג), `click_whatsapp` (לחיצה על וואטסאפ).
