@@ -334,6 +334,7 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
 .tour-img .zoom-card .zoom-txt{grid-column:2;grid-row:1;min-width:0;width:auto;flex:none}
 .tour-img .zoom-card .zoom-actions{grid-column:2;grid-row:2;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .tour-img .zoom-card .zoom-txt p{white-space:normal;word-break:normal}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
 </style>
 
 </head>
@@ -387,6 +388,7 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
   </div>
 <div class="hx-bar"><div class="wrap">
     <form class="hx-form" id="heroForm" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="hx-form-t"><b>בדיקה בבניין בחינם</b><span>השאירו שם וטלפון, ונחזור אליכם תוך שעה</span></div>
       <label for="h-name"><span class="sr">שם</span><input id="h-name" name="name" autocomplete="name" placeholder="שם" required></label>
       <label for="h-phone"><span class="sr">טלפון</span><input id="h-phone" name="phone" type="tel" autocomplete="tel" placeholder="טלפון" required></label>
@@ -644,6 +646,7 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
       </div>
     </div>
     <form id="leadForm" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <h3>או השאירו פרטים לקבלת הערכה בחינם</h3>
       <div class="form-row">
         <label for="f-name">שם מלא<input id="f-name" name="name" required autocomplete="name"></label>
@@ -694,7 +697,8 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
     var n=document.getElementById('f-name'),p=document.getElementById('f-phone');
     if(!n.value.trim()){m.hidden=false;m.style.color='var(--rebar)';m.textContent='נא למלא שם.';n.focus();return}
     if(p.value.replace(/\D/g,'').length<9){m.hidden=false;m.style.color='var(--rebar)';m.textContent='נא למלא מספר טלפון תקין.';p.focus();return}
-    m.hidden=false;m.style.color='var(--ok)';m.textContent='תודה '+n.value.trim()+'. בגרסה החיה הפרטים יישלחו אלינו ונחזור אליך תוך שעה.';
+    m.hidden=false;m.style.color='var(--muted)';m.textContent='שולחים...';
+    window.sendLead({form:'טופס יצירת קשר',name:n.value.trim(),phone:p.value.trim(),city:document.getElementById('f-city').value,situation:document.getElementById('f-type').value,visit:document.getElementById('f-visit').checked?'כן':'לא',msg:document.getElementById('f-msg').value.trim(),website:f.website.value}).catch(function(){m.style.color='var(--rebar)';m.textContent='משהו השתבש בשליחה. אפשר להתקשר אלינו או לשלוח הודעה בוואטסאפ.'});
   });
   // ad visitors: hide menu; dynamic headline by ?s= service and ?c= city
   var q=new URLSearchParams(location.search);
@@ -722,7 +726,9 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
     hm.hidden=false;
     if(!n.value.trim()){hm.style.color='var(--rebar)';hm.textContent='נא למלא שם.';n.focus();return}
     if(p.value.replace(/\D/g,'').length<9){hm.style.color='var(--rebar)';hm.textContent='נא למלא מספר טלפון תקין.';p.focus();return}
-    hm.style.color='var(--ok)';hm.textContent='תודה '+n.value.trim()+'. בגרסה החיה נחזור אליך תוך שעה לתיאום הבדיקה.';
+    hm.style.color='var(--muted)';hm.textContent='שולחים...';
+    var fc=document.getElementById('f-city'),ft=document.getElementById('f-type');
+    window.sendLead({form:'טופס מהיר',name:n.value.trim(),phone:p.value.trim(),visit:'כן',city:new URLSearchParams(location.search).get('c')?fc.value:'',situation:new URLSearchParams(location.search).get('s')?ft.value:'',website:hf.website.value}).catch(function(){hm.style.color='var(--rebar)';hm.textContent='משהו השתבש בשליחה. אפשר להתקשר אלינו או לשלוח הודעה בוואטסאפ.'});
   });
   var spots=document.querySelectorAll('.spot'),items=document.querySelectorAll('.tour-list li');
   var box=document.getElementById('tourImg'),zoom=document.getElementById('tourZoom'),card=document.getElementById('zoomCard');
@@ -753,5 +759,6 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
 })();
 </script>
 
+<script src="/assets/leads.js"></script>
 </body>
 </html>

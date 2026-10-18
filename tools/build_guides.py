@@ -85,6 +85,7 @@ def tail(): return f'''
 {footer}
 {mbar}
 </div>
+<script src="/assets/leads.js"></script>
 </body>
 </html>
 '''
