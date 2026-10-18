@@ -322,6 +322,13 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
 .ft-links a{color:inherit}
 .hx-priv{flex:1 1 100%;font-size:12.5px;color:var(--muted);margin-top:-2px}
 .hx-priv a,.small a{color:inherit}
+
+/* zoom card: fixed grid so the text always gets the full width */
+.tour-img .zoom-card{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:12px;row-gap:8px;align-items:start}
+.tour-img .zoom-card .zoom-num{grid-column:1;grid-row:1}
+.tour-img .zoom-card .zoom-txt{grid-column:2;grid-row:1;min-width:0;width:auto;flex:none}
+.tour-img .zoom-card .zoom-actions{grid-column:2;grid-row:2;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.tour-img .zoom-card .zoom-txt p{white-space:normal;word-break:normal}
 </style>
 
 </head>
@@ -404,9 +411,9 @@ footer{padding-block:32px 96px;font-size:14px;color:var(--muted);border-top:1px 
         </div></div>
         <div class="zoom-card" id="zoomCard" hidden>
           <span class="zoom-num" id="zoomNum"></span>
-          <div><b id="zoomTitle"></b><p id="zoomText"></p></div>
-          <button type="button" class="zoom-back" id="zoomBack">חזרה לבניין המלא</button>
-          <span class="zoom-hint">או לחצו על התמונה</span>
+          <div class="zoom-txt"><b id="zoomTitle"></b><p id="zoomText"></p></div>
+          <div class="zoom-actions"><button type="button" class="zoom-back" id="zoomBack">חזרה לבניין המלא</button>
+          <span class="zoom-hint">או לחצו על התמונה</span></div>
         </div>
       </div>
       <ol class="tour-list">
