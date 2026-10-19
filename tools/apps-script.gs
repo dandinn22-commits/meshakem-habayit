@@ -12,7 +12,7 @@
  */
 
 const SHEET_ID = '1GnPA6afCdKfvwg2faQ8mYEotuGaWW-YjfBbxfBhXmGY';
-const NOTIFY_EMAIL = 'dandinn22@gmail.com';
+const NOTIFY_EMAIL = 'meshakemhabayit@gmail.com,dandinn22@gmail.com';
 const TZ = 'Asia/Jerusalem';
 
 function clean_(v, max) {
