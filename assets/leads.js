@@ -1,7 +1,7 @@
 /* משקם הבית – שליחת לידים ולחיצות לגיליון הלידים */
 (function () {
   // הכתובת של סקריפט גוגל (מסתיימת ב־/exec). כל עוד היא ריקה, הטפסים לא שולחים.
-  var LEAD_URL = '';
+  var LEAD_URL = 'https://script.google.com/macros/s/AKfycbwkSU0mh4e1Rx8C6Dxdt-1H4rj4xV1Uzdo9Czl0p8yo9Fo4vwyZxtGinSDQa72HpTMl/exec';
 
   var KEYS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 's', 'c'];
   var q = new URLSearchParams(location.search);

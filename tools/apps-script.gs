@@ -68,7 +68,7 @@ function doPost(e) {
     const sh = ss.getSheetByName('לידים');
     const id = sh.getLastRow();                      // שורה 1 היא הכותרות
     sh.appendRow([
-      id, today_(), time, name, phone,
+      id, today_(), time, name, "'" + phone,
       clean_(p.city, 40), clean_(p.situation, 60), clean_(p.visit, 10),
       source, 'חדש', '', '', '', '', '',
       'לחזור ללקוח', today_(), notes
