@@ -26,7 +26,7 @@ def page(c):
     desc=f"שיקום וחיזוק מבנים ב{n}: הסרת צו מבנה מסוכן, שיקום עמודים ומרפסות. 16 שנות ניסיון, הערכה ובדיקה בבניין בחינם. שלחו תמונה ונחזור תוך שעה."
     url=f"{DOMAIN}/shikum-mivnim/{c['slug']}/"
     faqs=c["faq"]+[(f"כמה עולה שיקום מבנה ב{n}?","המחיר תלוי במספר הליקויים, בגובה הבניין ובדרך הגישה. אחרי שתשלחו תמונות ניתן טווח מחיר ראשוני בחינם, והצעה מדויקת אחרי בדיקה בבניין, שגם היא בחינם.")]
-    ld=[{"@context":"https://schema.org","@type":"GeneralContractor","name":"משקם הבית","url":DOMAIN+"/","telephone":"+972-50-555-0182","areaServed":{"@type":"City","name":n},
+    ld=[{"@context":"https://schema.org","@type":"GeneralContractor","name":"משקם הבית","url":DOMAIN+"/","telephone":"+972-53-619-4330","areaServed":{"@type":"City","name":n},
          "description":f"שיקום וחיזוק מבנים והסרת צו מבנה מסוכן ב{n}"},
         {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]},
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -137,7 +137,7 @@ def page(c):
   <div class="wrap" style="display:grid;gap:16px;max-width:760px">
     <h2 style="font-size:clamp(26px,3.4vw,38px)">גרים ב{esc(n)} וקיבלתם צו? שלחו תמונה וקבלו הערכה בחינם</h2>
     <p style="color:color-mix(in srgb,var(--band-ink) 80%,transparent)">שלחו 3 תמונות של הליקויים ואת מכתב העירייה, ונחזור אליכם תוך שעה עם הערכה ראשונית. ההערכה והבדיקה בבניין בחינם וללא התחייבות.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px">{WA}<a class="btn btn-light btn-xl" href="tel:+972505550182"><span>חייגו 050-555-0182<small>מענה מיידי</small></span></a></div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">{WA}<a class="btn btn-light btn-xl" href="tel:+972536194330"><span>חייגו 053-619-4330<small>מענה מיידי</small></span></a></div>
   </div>
 </section>
 

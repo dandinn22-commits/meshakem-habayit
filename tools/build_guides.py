@@ -128,7 +128,7 @@ def guide(g):
   </article>
   <aside class="g-side">
     <nav class="toc" aria-label="תוכן העניינים"><b>במדריך הזה</b><ol>{toc}<li><a href="#faq">שאלות נפוצות</a></li></ol></nav>
-    <div class="side-cta"><b>הערכה ובדיקה בבניין בחינם</b><p>16 שנות ניסיון בשיקום מבנים במרכז. מענה תוך שעה.</p>{WA}<a class="btn btn-light" href="tel:+972505550182">חייגו 050-555-0182</a></div>
+    <div class="side-cta"><b>הערכה ובדיקה בבניין בחינם</b><p>16 שנות ניסיון בשיקום מבנים במרכז. מענה תוך שעה.</p>{WA}<a class="btn btn-light" href="tel:+972536194330">חייגו 053-619-4330</a></div>
   </aside>
 </div>
 <section style="padding-top:8px">
