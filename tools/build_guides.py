@@ -86,6 +86,7 @@ def tail(): return f'''
 {mbar}
 </div>
 <script src="/assets/leads.js?v=3"></script>
+<script src="/lead-alerts.js?v=1" data-brand="משקם הבית" defer></script>
 </body>
 </html>
 '''
