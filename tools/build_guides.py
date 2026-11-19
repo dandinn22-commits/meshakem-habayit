@@ -4,6 +4,10 @@ sys.path.insert(0,os.path.dirname(__file__))
 from guides import GUIDES
 from cities import CITIES
 R=sys.argv[1]; DOMAIN="https://meshakemhabayit.com"; esc=html.escape
+DEFAULT_DATE="2026-10-18"
+MONTHS=["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
+def gdate(g): return g.get("date",DEFAULT_DATE)
+def hdate(d): y,m,dd=d.split("-"); return f"{int(dd)} ב{MONTHS[int(m)-1]} {y}"
 src=open(f"{R}/index.html",encoding="utf-8").read()
 header=src[src.index("<header>"):src.index('<div class="tape" aria-hidden="true"></div>')+len('<div class="tape" aria-hidden="true"></div>')]
 header=header.replace('href="#top"','href="/"').replace('href="#','href="/#')
@@ -94,7 +98,7 @@ def guide(g):
     url=f"{DOMAIN}/madrich/{g['slug']}/"
     faq=g["faq"]
     ld=[{"@context":"https://schema.org","@type":"Article","headline":g["title"],"description":g["desc"],"image":f"{DOMAIN}/img/{g['img'][0]}",
-         "datePublished":"2026-10-18","dateModified":"2026-10-18","inLanguage":"he","mainEntityOfPage":url,
+         "datePublished":gdate(g),"dateModified":gdate(g),"inLanguage":"he","mainEntityOfPage":url,
          "author":{"@type":"Organization","name":"משקם הבית","url":DOMAIN+"/"},"publisher":{"@type":"Organization","name":"משקם הבית","logo":{"@type":"ImageObject","url":DOMAIN+"/apple-touch-icon.png"}}},
         {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]},
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -115,7 +119,7 @@ def guide(g):
   <div class="wrap">
     <nav class="crumbs" aria-label="מיקום בעמוד"><a href="/">דף הבית</a> › <a href="/madrich/">מדריכים</a> › {esc(g["title"])}</nav>
     <h1>{esc(g["title"])}</h1>
-    <p class="g-meta">צוות משקם הבית · זמן קריאה: {g["minutes"]} דקות · עודכן: 18 באוקטובר 2026</p>
+    <p class="g-meta">צוות משקם הבית · זמן קריאה: {g["minutes"]} דקות · עודכן: {hdate(gdate(g))}</p>
   </div>
 </section>
 <div class="wrap g-wrap">
@@ -158,8 +162,27 @@ idx=HEAD.format(title="מדריכים לשיקום מבנים ולוועדי ב�
 </section>'''+tail()
 open(f"{R}/madrich/index.html","w",encoding="utf-8").write(idx)
 # sitemap
-urls=[DOMAIN+"/",DOMAIN+"/madrich/"]+[f"{DOMAIN}/madrich/{g['slug']}/" for g in GUIDES]+[f"{DOMAIN}/shikum-mivnim/{c['slug']}/" for c in CITIES]+[DOMAIN+"/privacy.html",DOMAIN+"/accessibility.html"]
-open(f"{R}/sitemap.xml","w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>\n" for u in urls)+"</urlset>\n")
+latest=max([DEFAULT_DATE]+[gdate(g) for g in GUIDES])
+urls=[(DOMAIN+"/",DEFAULT_DATE),(DOMAIN+"/madrich/",latest)]+[(f"{DOMAIN}/madrich/{g['slug']}/",gdate(g)) for g in GUIDES]+[(f"{DOMAIN}/shikum-mivnim/{c['slug']}/",DEFAULT_DATE) for c in CITIES]+[(DOMAIN+"/privacy.html",DEFAULT_DATE),(DOMAIN+"/accessibility.html",DEFAULT_DATE)]
+open(f"{R}/sitemap.xml","w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u,d in urls)+"</urlset>\n")
+# llms.txt: short guide to the site for AI engines
+llms=f"""# משקם הבית
+
+> משקם הבית – שיקום מבנים במרכז הארץ: הסרת צווי מבנה מסוכן, שיקום עמודים, שיקום מרפסות ותיקוני בטון. 16 שנות ניסיון. הערכה ובדיקה בבניין בחינם, מהנדס מלווה את הביצוע, וליווי עד הסרת הצו.
+
+- טלפון ווואטסאפ: 053-619-4330
+- מייל: meshakemhabayit@gmail.com
+- אזור שירות: מרכז הארץ
+
+## עמודים עיקריים
+- [דף הבית]({DOMAIN}/): השירותים, איך העבודה מתנהלת, ושאלות נפוצות
+- [מדריכים]({DOMAIN}/madrich/): מדריכים לוועדי בתים ולבעלי דירות
+
+## מדריכים
+"""+"".join(f"- [{g['title']}]({DOMAIN}/madrich/{g['slug']}/): {g['desc']}\n" for g in GUIDES)+"""
+## שיקום מבנים לפי עיר
+"""+"".join(f"- [שיקום מבנים ב{c['name']}]({DOMAIN}/shikum-mivnim/{c['slug']}/)\n" for c in CITIES)
+open(f"{R}/llms.txt","w",encoding="utf-8").write(llms)
 print("guides",len(GUIDES))
 
 import gtag

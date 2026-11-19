@@ -169,5 +169,6 @@ for c in CITIES:
 # sitemap + robots
 urls=[DOMAIN+"/"]+[f"{DOMAIN}/shikum-mivnim/{c['slug']}/" for c in CITIES]+[DOMAIN+"/privacy.html",DOMAIN+"/accessibility.html"]
 open(f"{R}/sitemap.xml","w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{u}</loc><lastmod>2026-10-18</lastmod></url>\n" for u in urls)+"</urlset>\n")
-open(f"{R}/robots.txt","w").write(f"User-agent: *\nAllow: /\nDisallow: /toda/\n\nSitemap: {DOMAIN}/sitemap.xml\n")
+AI_BOTS=["GPTBot","OAI-SearchBot","ChatGPT-User","ClaudeBot","Claude-SearchBot","PerplexityBot","Google-Extended"]
+open(f"{R}/robots.txt","w").write("User-agent: *\nAllow: /\nDisallow: /toda/\n\n"+"".join(f"User-agent: {b}\n" for b in AI_BOTS)+f"Allow: /\nDisallow: /toda/\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 print("built",len(CITIES))
